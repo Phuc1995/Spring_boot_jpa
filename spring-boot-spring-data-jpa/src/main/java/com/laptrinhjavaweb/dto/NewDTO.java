@@ -1,5 +1,8 @@
 package com.laptrinhjavaweb.dto;
 
+
+//data tranfer abstract
+//comunicate between GUI and Entity
 public class NewDTO {
 	
 	private String title;

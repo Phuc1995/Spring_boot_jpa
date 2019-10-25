@@ -36,4 +36,12 @@ public class CategoryEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public List<NewEntity> getNews() {
+		return news;
+	}
+
+	public void setNews(List<NewEntity> news) {
+		this.news = news;
+	}
 }
