@@ -1,25 +1,41 @@
 package com.laptrinhjavaweb.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import org.hibernate.mapping.Array;
+
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name = "user")
 public class UserEntity extends BaseEntity{
 	
-	@Column
+	@Column(name = "username")
 	private String userName;
 
 	@Column
 	private String password;
 
-	@Column
+	@Column(name = "fullname")
 	private String fullName;
 
 	@Column
 	private Integer status;
+	
+	//key of user and role were created on table user_role 
+	@ManyToMany
+	@JoinTable(name = "user_role",
+				joinColumns = @JoinColumn(name = "user_id"),
+				inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private List<RoleEntity> roles = new ArrayList<>();
 
 	public String getUserName() {
 		return userName;
@@ -51,5 +67,12 @@ public class UserEntity extends BaseEntity{
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public List<RoleEntity> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
 	}
 }
