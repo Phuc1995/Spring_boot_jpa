@@ -3,7 +3,7 @@ package com.laptrinhjavaweb.dto;
 
 //data tranfer abstract
 //comunicate between GUI and Entity
-public class NewDTO {
+public class NewDTO extends AbstractDTO<NewDTO>{
 	
 	private String title;
 	private String content;
